@@ -10,9 +10,11 @@ class Find
   	  @y2 = year2
   	  @m2 = month2
   	  @d2 = day2
+
+  	  puts "45785"
   end
-  def get_age
-  	if @d1 > @d2 then
+  def get_age()
+  	if @d1 > @d2 
   	   m2 = m2 - 1 
        d2 = d2 + 30
     end  
