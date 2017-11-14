@@ -1,50 +1,66 @@
-class Find
-	
-  def birth_date( year1, month1, day1 )
-  	
-  	  @y1 = year1
-  	  @m1 = month1
-  	  @d1 = day1
+class K
+  @d1 
+  @d2
+  @m1
+  @m2
+  @y1
+  @y2
+  @@t_days = 0
+  def get_dob()
+    puts "enter day"
+    d1 = gets.chomp.to_i
+    puts "enter month"
+    m1 = gets.chomp.to_i
+    puts "enter year"
+    y1 = gets.chomp.to_i
+
+     t = Time.now
+    d2 = t.day.to_i
+    m2 = t.month.to_i
+    y2 = t.year.to_i
+    
+
+    if y1 <= y2
+      t_days = (y2 - y1)*365
+    elsif m1 <= m2
+    elsif  d1 < d2
+      puts "not possible"  
+    end
+    if m2 > m1 
+      t_days = t_days + (m2 - m1)*30
+    else
+       t_days = t_days - (m1 - m2)*30
+    end
+    if d2 > d1 
+      t_days = t_days + (d2 - d1)
+    else
+       t_days = t_days - (d1 - d2)
+    end
+      
+      puts "current date is :"
+      print y2
+      print "-" 
+      print m2
+      print "-"
+      print d2
+      print "\n"
+      @y = (t_days / 365)
+      @a = (t_days % 365)
+      @m = (@a / 30)
+      @d = (@a % 30)
+
+      puts "\nyour current age is :"
+      #puts t_days
+      puts "#{@y} year- #{@m} month- #{@d} days "
+      print "\n"
+
   end
-  def current_date( year2, month2, day2 )
-  	  @y2 = year2
-  	  @m2 = month2
-  	  @d2 = day2
 
-  	  puts "45785"
-  end
-  def get_age()
-  	if @d1 > @d2 
-  	   m2 = m2 - 1 
-       d2 = d2 + 30
-    end  
-    if @m1 > @m2 then
-  	   y2 = y2 - 1
-       m2 = m2 + 12 
-    end 
-
-      @y = (y2-y1)
-      @m = (m2-m1)
-      @d = (d2-d1)
-
-    if  @m > 12 then
-  	    m = m - 12
-  	    y = y + 1
-     end
-       
-    if @d > 30 then
-  	    d = d - 30
-  	    m = m + 1
-    end  
-      	
-      puts y 	 
-      puts m
-      puts d 
-   end
+  
 end
 
- f1 = Find.new()
- f1.birth_date(1994, 12, 3)
- f1.current_date(2017, 11, 13)
- f1.get_age()
-  
+
+
+k1 = K.new
+puts "\nplease enter your birth date:-"
+k1.get_dob
